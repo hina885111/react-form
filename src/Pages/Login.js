@@ -1,24 +1,30 @@
 import React   from "react";
 import { useForm } from 'react-hook-form';
 
-//import {useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 
 function Login()
 {
-  // let email = "hina503202@gmail.com";
-  // let password ="1234567890";
+  let email = "hina503202@gmail.com";
+  let password ="1234567890";
   
 
   
-//  const navigate = useNavigate();
-//  function handleClick()
-//  {
-//   navigate("/profile");
-//  }
+ const navigate = useNavigate();
+ 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-   const onSubmit = data => console.log(data);
+   const onSubmit = (data) => {
+    if(data["email"]=== email && data["password"]=== password ){
+      navigate("/profile");
+
+    }
+    else{
+      console.log("invalid login");
+    }
+    
+   };
 // const onSubmit = 
 
   return (
